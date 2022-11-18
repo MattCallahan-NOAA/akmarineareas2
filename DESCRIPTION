@@ -2,8 +2,8 @@ Package: akmarineareas2
 Type: Package
 Title: Provides access Alaskan marine area spatial data
 Version: 0.1.0
-Author: person("Matt", "Callahan", , "matt.callahan@noaa.gov", role= c("aut", "cre"))
-Maintainer: person("Matt", "Callahan", , "matt.callahan@noaa.gov", role= c("aut", "cre"))
+Author: Matt Callahan
+Maintainer: <matt.callahan@noaa.gov>
 Description: This package imports management relevant spatial data for Alaska marine areas as sf objects.
     Areas included are large marine ecosystems and ecosystem subareas used in the Ecosystem status reports,
     NMFS areas, ADF&G stat areas, and BSIERP regions.
