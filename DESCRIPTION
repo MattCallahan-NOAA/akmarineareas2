@@ -3,9 +3,9 @@ Type: Package
 Title: Provides access Alaskan marine area spatial data
 Version: 0.1.0
 Author: person("Matt", "Callahan", , "matt.callahan@noaa.gov", role= c("aut", "cre"))
-Maintainer: 
-Description: This package imports management relevent spatial data for Alaska marine areas as sf objects.
-    Areas included are large marine ecosystems and ecosystem subares used in the Ecosystem status reports,
+Maintainer: person("Matt", "Callahan", , "matt.callahan@noaa.gov", role= c("aut", "cre"))
+Description: This package imports management relevant spatial data for Alaska marine areas as sf objects.
+    Areas included are large marine ecosystems and ecosystem subareas used in the Ecosystem status reports,
     NMFS areas, ADF&G stat areas, and BSIERP regions.
 Imports: sf, magrittr
 License: What license is it under?

@@ -1,0 +1,71 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# akmarineareas2
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The akmarineareas2 package imports spatial data of Alaska marine management and ecosystem areas as sf objects.
+Areas included are large marine ecosystems and ecosystem subareas used in the ecosystem status reports (ESR), NMFS areas, ADF&G stat areas, and BSIERP regions. Basemaps of Alaska, Canada, and Russia are also included. Each layer has an Alaskan Albers projection and decimal degree version. This package supersedes the AKmarineareas package. 
+
+## Installation
+
+You can install the development version of akmarineareas2 from [GitHub](https://github.com/) with:
+
+``` {r, eval=FALSE}
+devtools::install_github("MattCallahan-NOAA/akmarineareas2")
+```
+
+## Data
+
+**adfg/adfg_dd** Alaska Department of Fish and Game (ADFG) statistical areas. Data are courtesy of ADFG.
+**nmfs/nmfs_dd** National Marine Fisheries Service (NMFS) reporting areas. Data courtesy of the Alaska Fisheries Science Center (AFSC) Ecosystem Monitoring and Assessment (EMA) Program.
+**bsierp/bsierp_dd** Bering Sea Integrated Ecosystem Research Project (BSIERP) regions. Data courtesy of the Alaska Fisheries Science Center (AFSC) Ecosystem Monitoring and Assessment (EMA) Program.
+**lme/lme_dd** Large Marine Ecosystems (Arctic, Bering Sea, Aleutian Islands, and Gulf of Alaska). Data courtesy of Brett Holycross at Pacific States Marine Fisheries Commission (PSMFC) according to the specifications of the ESR authors. Note that the AI and GOA boundary splits NMFS 610.
+**esr/esr_dd** Ecosystem subareas. Data courtesy of Brett Holycross at Pacific States Marine Fisheries Commission (PSMFC) according to the specifications of the ESR authors. Note that the AI and GOA boundary splits NMFS 610.
+**ak/ak_dd** Alaska basemap. Data courtesy of Brett Holycross at Pacific States Marine Fisheries Commission (PSMFC).
+**canada/canada_dd** Canada taken from the Rnaturalearth package.
+**russia/russia_dd** Russia taken from the Rnaturalearth package.
+
+
+```{r, warning=FALSE, message=FALSE}
+library(akmarineareas2)
+library(tidyverse)
+library(sf)
+## plot NMFS areas
+ggplot()+
+  geom_sf(data=nmfs)+
+  geom_sf(data=ak)
+```
+
+
+## Functions
+**remove_dateline()** Some polygons have a line through them at the international dateline that does not reflect an area boundary. Other data may have this artifact too (e.g. Siberia from the rnaturalearth package). This function removes the dateline from data for mapping. 
+
+```{r, warning=FALSE}
+## without dateline removed
+esr_dd%>%
+  ggplot()+
+  geom_sf()+
+  theme_void()
+
+esr_dd%>%
+  remove_dateline()%>%
+  ggplot()+
+  geom_sf()+
+  theme_void()
+
+```
