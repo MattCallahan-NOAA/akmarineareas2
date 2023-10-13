@@ -47,6 +47,8 @@ devtools::install_github("MattCallahan-NOAA/akmarineareas2")
 
 **russia/russia_dd** Russia taken from the Rnaturalearth package.
 
+**fmp/fmp_dd/fmp_sub/fmp_sub_dd** These were generated from NMFS areas. 
+
 
 ```{r, warning=FALSE, message=FALSE}
 library(akmarineareas2)
